@@ -17,7 +17,7 @@ const SendEmail = () => {
     if (newEmail.to && newEmail.subject && newEmail.body) {
       setIsSending(true);
       try {
-        const response = await fetch('http://localhost:5001/send-email', {
+        const response = await fetch('https://bluebash.onrender.com/send-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -28,6 +28,7 @@ const SendEmail = () => {
         if (response.ok) {
           setMessage('Email sent successfully!');
           setNewEmail({ to: '', subject: '', body: '' });
+          window.dispatchEvent(new CustomEvent('email-sent', { detail: newEmail }));
         } else {
           setMessage('Failed to send email.');
         }
@@ -66,7 +67,7 @@ const SendEmail = () => {
         value={newEmail.body}
         onChange={handleInputChange}
       />
-     
+
       <button onClick={handleSend} disabled={isSending}>
         {isSending ? 'Sending...' : 'Send Email'}
       </button>

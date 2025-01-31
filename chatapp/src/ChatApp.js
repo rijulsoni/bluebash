@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5001');
+const socket = io('https://bluebash.onrender.com/');
 
 const ChatApp = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    // Listen for incoming messages
     socket.on('chat-message', (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
     });
@@ -20,7 +19,7 @@ const ChatApp = () => {
 
   const sendMessage = () => {
     if (message) {
-      socket.emit('chat-message', message); // Send message to server
+      socket.emit('chat-message', message);
       setMessage('');
     }
   };
