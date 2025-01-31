@@ -8,7 +8,7 @@ const server = http.createServer(app);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-    origin: ['https://emailapp12.netlify.app', 'http://localhost:3000'],
+    origin: ['https://emailapp12.netlify.app', 'https://hostappmain.netlify.app'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
   }));
@@ -46,7 +46,7 @@ app.use(cors({
 
 const io = socketIo(server, {
   cors: {
-    origin: ['https://chatappmain12.netlify.app', 'http://localhost:3000'],
+    origin: ['https://chatappmain12.netlify.app', 'https://hostappmain.netlify.app'],
     methods: ['GET', 'POST'],
   },
 });
