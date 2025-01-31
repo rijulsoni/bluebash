@@ -11,7 +11,7 @@ module.exports = {
     },
   },
   output: {
-    publicPath: "auto",  
+    publicPath: "auto",
   },
   module: {
     rules: [
@@ -39,8 +39,8 @@ module.exports = {
       name: "mainApp",
       filename: "remoteEntry.js",
       remotes: {
-        chatApp: "chatApp@http://localhost:3001/remoteEntry.js",
-        emailApp: "emailApp@http://localhost:3002/remoteEntry.js",
+        chatApp: "chatApp@https://chatappmain12.netlify.app/remoteEntry.js",
+        emailApp: "emailApp@https://emailapp12.netlify.app/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, eager: true },
