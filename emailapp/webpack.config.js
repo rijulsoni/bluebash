@@ -2,7 +2,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   devServer: {
     port: 3002,
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$|jsx/, 
+        test: /\.js$|jsx/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
